@@ -3,7 +3,11 @@
 <!-- TOC -->
 - [Q1 - Rails Application Architecture](#q1---rails-application-architecture)
 - [Q2 - Database Management System](#q2---database-management-system)
-    - [**Pros**](#pros)
+    - [Pros](#pros)
+    - [Cons](#cons)
+- [Q3 - Agile Project Management Implementation](#q3---agile-project-management-implementation)
+- [Q4 - Source Control Workflow](#q4---source-control-workflow)
+- [Q5 - Software Testing Process](#q5---software-testing-process)
 <!-- /TOC -->
 
 
@@ -46,5 +50,47 @@ A commonly used database management system in Rails and other web framework appl
 
 - *High memory usage* - owing to their requirement of high data redundancy and their need to explicitly store the key name in each key-value pair in every document, MongoDB databases can become very large very quickly.
 
-## Q3 - Agile Project Management Methodology
+## Q3 - Agile Project Management Implementation
+
+Agile is a set of guiding principles for efficient and effective project management. As laid out in the Agile Manifesto<sup>1</sup>, its primary tenets lie in the prioritisation and valuation of:
+- "Individuals and interactions over processes and tools";
+- "Working software over comprehensive documentation";
+- "Customer collaboration over contract negotiation"; and
+- "Responding to change over following a plan".
+
+Businesses adopt Agile primarily by implementing a change in management style that requires managers to abandon the traditional methods of micromanagement and specific task delegation in favour of instead empowering their teams to make operational decisions, by delegating high-level objectives only and stepping in only to remove roadblocks or clarify direction.
+
+Agile development is often operated within the Scrum framework, a system which attempts to decrease the time between planning and deployment by breaking software development down into multiple shorter timeblocks called "sprints". in sprints, features of the software are developed in their entirety within a set period, with the goal of creating a Minimum Viable Product that can be potentially deployed to customers in the shortest amount of time, allowing teams to then add more features and iteratively improve the product while it is in use instead of one immutable product at the end of a project.
+
+Agile and Scrum came about as a solution to a number of endemic problems with the older industry standard of "waterfall" development methodology, which required each phase of an application's development to be entirely complete prior to commencing the next, which across a lengthy project timeframe of months or years often resulted in a finished product being obsolete by the time it was released. Agile and Scrum, together emphasising the importance of working closely with the customer to fulfil their needs and of iteratively developing and delivering software that can be more closely fit to their needs, allow development teams to both keep up with the breakneck rate of change of the tech industry in the modern era, and to make better products faster.
+
+## Q4 - Source Control Workflow
+
+Source control is a system for allowing changes to a project with multiple contributors to be easily tracked, merged and reverted, by storing snapshots of different versions of the project's source code files within special folders called repositories. Source control in the software industry is often implemented using a tool called Git, an example workflow of which is provided below:
+
+1. Begin work by initiating a new project with `git init` if a repository does not exist, or cloning an existing repository with `git clone`. Initiating a new repository will enable the tracking of files within that folder; while cloning a repository will download a snapshot of the latest version of a particular project from a hosting server, such as Github or Bitbucket, to a local machine to be worked on.
+
+1. When cloning a repository, any new features that are being worked on will often be done in a different branch of the repository using the `git checkout` command to avoid potential bugs and issues with the main body of the application.
+
+1. Work on the project by making modifications, additions or deletions to files within the project.
+
+1. Once a significant enough amount of work has been done and changes are ready to be added, the user can run `git status` to ensure that all file changes are intended and no accidental file modification has occurred.
+
+1. Once satisfied with the status of the changes, running `git add` will allow the user to add their selected changes to the "staging area".
+
+1. After all desired files are added to the staging area, users may run `git commit` to save a snapshot of their modifications to the repository.
+
+1. If work has been completed in a different branch, a *pull request* may be initiated to merge these changes back into the main branch.
+
+1. The above steps are then repeated until the conclusion of the project.
+
+## Q5 - Software Testing Process
+
+Software testing is the process of performing specific operational tasks on an application in development, which can be done by manually operating the application as a user, or by using scripted testing libraries such as RSpec, Mocha or Selenium.
+
+In manual testing, software testers will run the application through a test plan that specify a series of unique test cases
+
+# References
+
+1. http://agilemanifesto.org/
 
