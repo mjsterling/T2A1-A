@@ -88,7 +88,39 @@ Source control is a system for allowing changes to a project with multiple contr
 
 Software testing is the process of performing specific operational tasks on an application in development, which can be done by manually operating the application as a user, or by using scripted testing libraries such as RSpec, Mocha or Selenium.
 
-In manual testing, software testers will run the application through a test plan that specify a series of unique test cases
+In manual testing, software testers will:
+
+1. First assess the testing requirements of the application in line with standards and specifications set by the application's documentation;
+1. Create a comprehensive "test plan" containing a series of unique test cases designed to assess whether or not the application is operating as expected;
+1. Run each of the tests in this plan on the application and document any discrepancies between actual and expected results;
+1. Report any bugs to the development team, and re-run the specific tests once any fixes have been applied.
+
+Manual testing is usually executed in stages of increasing complexity in order to easily identify where errors are occurring:
+
+1. *Unit testing* is the most basic level and is done first - ensuring that the smallest discrete pieces of code, such as UI components, are functioning as intended;
+2. Next, *integration testing* combines these individual components to ensure they are working cohesively;
+3. *System testing* takes this one step further by checking whether all of the integrated parts of the application are working together as intended;
+4. Finally, *acceptance testing* is performed to see if the application is suitable for its intended use case in a deployed environment.
+
+## Q6 - System Security Requirements
+
+Information security is an important focus for any online business, however for  e-commerce enterprises it is absolutely critical that appropriate security measures are implemented due to their propensity to be targeted by cybercriminals. By nature of the significant amounts of sensitive personal and financial data that must be stored by online marketplaces, these requirements are: 
+
+- *Encryption and authentication* - personal identities and credit card details must be sent over an encrypted protocol that is protected from unauthorised access and indecipherable even if intercepted;
+
+- *Integrity and irrepudiability* - unmodified records of transactions must be stored on the server and accessible when required to ensure that parties to a transaction cannot deny sending or receiving goods or payments, and that the transaction records cannot be altered;
+
+- *Operational protection* - sufficient systems must be in place to prevent attackers from disrupting the website's operation through Distributed Denial of Service and other similar attacks.
+
+## Q7 - Data Protection Methods
+
+- *User authentication* - ensuring users are who they say they are mitigates the ability of attackers to gain unauthorised access to data. For a marketplace application this is a mandatory requirement, and is usually executed in e-commerce with a simple password login, however this system often proves insufficient due to human fallibility and so I would strongly recommend a two-factor authentication system using the user's smartphone with Google Authenticator or equivalent, biometric verification, or an SMS code to limit fraud.
+
+- *Data protection* - appropriate data server security such as firewalls, hasing algorithms and DDoS protection services such as offered by Cloudflare would be required for the project, as well as use of SSL encryption (HTTPS) to prevent sensitive information from being stolen while being transmitted to the server.
+
+- *Website authenticity* - to prevent users falling victim to phishing and other similar attacks, a security certificate/digital signature system, along with a unique and easily recognisable URL would be applied to the project so that users may verify they are communicating with the true application.
+
+## Q8 - 
 
 # References
 
