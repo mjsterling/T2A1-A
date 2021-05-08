@@ -116,11 +116,28 @@ Information security is an important focus for any online business, however for 
 
 - *User authentication* - ensuring users are who they say they are mitigates the ability of attackers to gain unauthorised access to data. For a marketplace application this is a mandatory requirement, and is usually executed in e-commerce with a simple password login, however this system often proves insufficient due to human fallibility and so I would strongly recommend a two-factor authentication system using the user's smartphone with Google Authenticator or equivalent, biometric verification, or an SMS code to limit fraud.
 
-- *Data protection* - appropriate data server security such as firewalls, hasing algorithms and DDoS protection services such as offered by Cloudflare would be required for the project, as well as use of SSL encryption (HTTPS) to prevent sensitive information from being stolen while being transmitted to the server.
+- *Data protection* - appropriate data server security such as firewalls, hashing algorithms and DDoS protection services such as offered by Cloudflare would be required for the project, as well as use of SSL encryption (HTTPS) to prevent sensitive information from being stolen while being transmitted to the server.
 
 - *Website authenticity* - to prevent users falling victim to phishing and other similar attacks, a security certificate/digital signature system, along with a unique and easily recognisable URL would be applied to the project so that users may verify they are communicating with the true application.
 
-## Q8 - 
+## Q8 - Legal Obligations
+
+In Australia, the handling and storage of sensitive personal and financial information is outlined in the *Privacy Act 1988 (Cth)*. This legislation was enacted to protect the rights of individuals by requiring companies storing sensitive data to adhere to the following principles:
+
+- *Transparency* - compliant entities must permit individuals to request access to any data held about them;
+- *Consent* - compliant entities must only collect and store data about individuals with that individual's express consent;
+- *Limitation of Purpose* - information collected about an individual can only be used for the explicit purposes for which it is collected;
+- *Destruction* - when a compliant entity has no further use for the collected information it must be destroyed.
+
+To this end, the project must contain an End User License Agreement and Privacy Policy which users must agree to before being permitted to use the service, outlining the constraints under which their personal and financial information is collected. Any data stored must be accessible to an individual who can prove their identity, able to be deleted on request, and automatically garbage collected once a user's account has been deleted or made inactive.
+
+## Q9 - Relational Database Structure
+
+Relational databases are structured as a collection of one or more *relations*, commonly conceptualised within SQL-based DBM systems as a *table*. Within each relation are *tuples*, ordered sets of values displayed as rows; and *attributes*, containing an attribute name and an attribute type, represented by the columns in the table. Individual database records are required to be stored within the format outlined by the database's *schema*, or data structure, which specifies that the value within a field must match the data type outlined in the attribute.
+
+When an entry is made to a relational database, a new row is created with each value being stored in the appropriate column. Tables will usually contain a unique index, often numeric, for each new record; this X-Y crossover between the ID and the column attribute is what permits data to be later queried.
+
+## Q10 - Relational Database Integrity
 
 # References
 
