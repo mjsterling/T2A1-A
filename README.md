@@ -8,6 +8,20 @@
 - [Q3 - Agile Project Management Implementation](#q3---agile-project-management-implementation)
 - [Q4 - Source Control Workflow](#q4---source-control-workflow)
 - [Q5 - Software Testing Process](#q5---software-testing-process)
+- [Q6 - System Security Requirements](#q6---system-security-requirements)
+- [Q7 - Data Protection Methods](#q7---data-protection-methods)
+- [Q8 - Legal Obligations](#q8---legal-obligations)
+- [Q9 - Relational Database Structure](#q9---relational-database-structure)
+- [Q10 - Relational Database Integrity](#q10---relational-database-integrity)
+- [Q11 - Relational Database Data Manipulation](#q11---relational-database-data-manipulation)
+- [Q12 - Marketplace App Research - eBay](#q12---marketplace-app-research---ebay)
+    - [a. List and describe the software used by the app. <sup>2</sup>](#a-list-and-describe-the-software-used-by-the-app-sup2sup)
+    - [b. Describe the hardware used to host the app. <sup>3</sup>](#b-describe-the-hardware-used-to-host-the-app-sup3sup)
+    - [c. Describe the interaction of technologies within the app](#c-describe-the-interaction-of-technologies-within-the-app)
+    - [d. Describe the way data is structured within the app](#d-describe-the-way-data-is-structured-within-the-app)
+    - [e. Identify entities which must be tracked by the app](#e-identify-entities-which-must-be-tracked-by-the-app)
+    - [f. Identify the relationships and associations between the entities you have identified in part (e)](#f-identify-the-relationships-and-associations-between-the-entities-you-have-identified-in-part-e)
+    - [g. Design a schema using an Entity Relationship Diagram (ERD) appropriate for the database of this website (assuming a relational database model)](#g-design-a-schema-using-an-entity-relationship-diagram-erd-appropriate-for-the-database-of-this-website-assuming-a-relational-database-model)
 <!-- /TOC -->
 
 
@@ -133,13 +147,74 @@ To this end, the project must contain an End User License Agreement and Privacy 
 
 ## Q9 - Relational Database Structure
 
-Relational databases are structured as a collection of one or more *relations*, commonly conceptualised within SQL-based DBM systems as a *table*. Within each relation are *tuples*, ordered sets of values displayed as rows; and *attributes*, containing an attribute name and an attribute type, represented by the columns in the table. Individual database records are required to be stored within the format outlined by the database's *schema*, or data structure, which specifies that the value within a field must match the data type outlined in the attribute.
+Relational databases are structured as a collection of one or more *relations*, commonly conceptualised within SQL-based DBM systems as a *table*. Within each relation are *tuples*, ordered sets of values displayed as rows; and *attributes*, containing an attribute name and an attribute type or *domain*, represented by the columns in the table. Individual database records are required to be stored within the format outlined by the database's *schema*, or data structure, which specifies that the value within a field must match the data type outlined in the attribute.
 
-When an entry is made to a relational database, a new row is created with each value being stored in the appropriate column. Tables will usually contain a unique index, often numeric, for each new record; this X-Y crossover between the ID and the column attribute is what permits data to be later queried.
+When an entry is made to a relational database, a new row is created with each value being stored in the appropriate column for its desired attribute, e.g. Name(attribute) -> Keith (value). Tables will usually contain a unique index, often numeric, for each new record to ensure the table row is unique; this X-Y crossover between the ID and the column attribute is what permits data to be later retrieved when queried.
 
 ## Q10 - Relational Database Integrity
+
+Data integrity is often defined in these four categories:
+ 
+*Entity integrity* - relational databases must ensure that table rows are unique in order to correctly store and retrieve information. This is usually achieved by defining and enforcing a primary key: a special field that must be unique such as an index, SKU number or ID.
+
+*Referential integrity* - when relationships between two database tables exist, enforcing referential integrity means that the primary key of one table matches the appropriate key of the other table. Enforcing this type of integrity prevents undesired manipulation of table data due to user or program error; this is often done by preventing records from being saved or manipulated unless the data input correctly matches the completeness and format required by the database schemata.
+
+*Domain integrity* - domains in referential databases are strongly defined data types for a particular column, which for example prevent users from entering letters into a phone number field. Domain integrity is concerned with ensuring entries to a field match its preordained domain to avoid data corruption and type errors in an application - this can be achieved by ensuring input forms are engineered to reject or disallow incompatible user inputs.
+
+*User-defined integrity* broadly encompasses anything that is not described by the above three types and permits users to enforce their own data integrity requirements to suit their business needs; this can be implemented by working closely with the customer and tailoring a database to their use case.
+
+## Q11 - Relational Database Data Manipulation
+
+Manipulative aspects of a relational database are usually actioned using a data manipulation language such as Structured Query Language (SQL). Keywords within this language will explicitly instruct the database what to do depending on the desired result. Using SQL as an example, an application will instruct the database to perform a standard CRUD operation using an `INSERT`, `SELECT`, `UPDATE`, or `DELETE` command respectively, along with instructions on which tables/rows to be acted open; the DBMS will interpret this line of code, perform the desired operation and return the requested data to the application.
+
+## Q12 - Marketplace App Research - eBay
+
+### a. List and describe the software used by the app. <sup>2</sup>
+
+- eBay runs on a stack comprised of:
+    - *Node.js*, the industry-standard JavaScript back-end runtime environment;
+    - *Marko*, a JavaScript UI library described as being "10x faster than competing solutions";
+    - *Express.js*, a Node framework which drastically simplifies the creation and development of JavaScript-based server-side applications;
+    - *Lasso.js*, a JavaScript module bundler that eases the use and packaging of npm packages;
+    - *MongoDB*, a NoSQL database management system;
+    - and many other microservices and modules.
+
+### b. Describe the hardware used to host the app. <sup>3</sup>
+
+- eBay runs on web servers custom-built by eBay. These web servers are gargantuan in scope as they are equipped to handle 500 petabytes of data. Their hardware solution utilises a "Point of Presence" strategy, which enables decentralisation of their web servers, allowing them to more quickly transmit data to customers and significantly reduce loading times for the eBay website.
+
+### c. Describe the interaction of technologies within the app
+
+- Technologies in the eBay stack interact much like any other full-stack application: the front-end UI library displays a webpage to the user, and sends and receives information with the Node/Express backend through HTTP requests; the back-end interacts with the databases performing CRUD operations and serving front-end views to the user.
+
+### d. Describe the way data is structured within the app
+
+- It appears that eBay primarily uses NoSQL databases such as MongoDB, meaning in contrast to relational databases, data is likely stored in *key-value pairs* rather than tables. As a document-drive database management system, MongoDB structures its data in *collections* of *documents* which are queried by looking within specific collections for the desired value from a key.
+
+### e. Identify entities which must be tracked by the app
+
+- Entities that must be tracked by the app include:
+    - Users
+    - Product Listings
+    - Shopping Cart
+    - Transactions/Billing
+
+### f. Identify the relationships and associations between the entities you have identified in part (e)
+
+- Users provide the backbone of a two-way marketplace such as eBay.
+    - Each user may have many listings;
+    - Each listing will generally only have one transaction unless an issue occurs (e.g. a refund); 
+    - Each listing will have a buyer and a seller;
+    - Each user will have one shopping cart;
+    - Each shopping cart may contain multiple products.
+
+### g. Design a schema using an Entity Relationship Diagram (ERD) appropriate for the database of this website (assuming a relational database model)
+
+![](eBayERD.png)
 
 # References
 
 1. http://agilemanifesto.org/
+2. https://www.quora.com/What-technology-is-eBay-built-on?share=1
+3. https://www.ebayinc.com/stories/news/ebay-builds-own-servers-intends-to-open-source/
 
